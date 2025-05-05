@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "stdio.h": "c",
+        "input.h": "c",
+        "sdl_misc.h": "c"
+    }
+
+    
+}
+
