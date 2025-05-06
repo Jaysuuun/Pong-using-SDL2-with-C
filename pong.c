@@ -60,7 +60,7 @@ int main( int argc, char* args[]){
         .text_yvel = 4,
         .sprite_image = NULL,
         .sprite_rect = {0, 0, 0, 0},    
-        .sprite_vel = 5,
+        .sprite_vel = 15,
         .keystate = SDL_GetKeyboardState(NULL),
         .c_sound = NULL,
         .sdl_sound = NULL,
@@ -273,20 +273,20 @@ bool media(struct Pong *pong)
 
 void sprite_move (struct Pong *pong){
 
-    if(pong->keystate[SDL_SCANCODE_LEFT] || pong->keystate[SDL_SCANCODE_A]){
-        pong->sprite_rect.x -= pong->sprite_vel;
-    }
+    // if(pong->keystate[SDL_SCANCODE_LEFT] || pong->keystate[SDL_SCANCODE_A]){
+    //     pong->sprite_rect.x -= pong->sprite_vel;
+    // }
 
-    if(pong->keystate[SDL_SCANCODE_RIGHT] || pong->keystate[SDL_SCANCODE_D]){
-        pong->sprite_rect.x += pong->sprite_vel;
-    }
+    // if(pong->keystate[SDL_SCANCODE_RIGHT] || pong->keystate[SDL_SCANCODE_D]){
+    //     pong->sprite_rect.x += pong->sprite_vel;
+    // }
 
-    if(pong->keystate[SDL_SCANCODE_DOWN] || pong->keystate[SDL_SCANCODE_S]){
+    if((pong->keystate[SDL_SCANCODE_DOWN] || pong->keystate[SDL_SCANCODE_S]) && (pong->sprite_rect.y + pong->sprite_rect.h < WINDOW_HEIGHT)){
         pong->sprite_rect.y += pong->sprite_vel;
     }
 
 
-    if(pong->keystate[SDL_SCANCODE_UP] || pong->keystate[SDL_SCANCODE_W]){
+    if((pong->keystate[SDL_SCANCODE_UP] || pong->keystate[SDL_SCANCODE_W]) && (pong->sprite_rect.y > 0) ){
         pong->sprite_rect.y -= pong->sprite_vel;
     }
 }
