@@ -94,10 +94,6 @@ int main( int argc, char* args[]){
                 case SDL_SCANCODE_ESCAPE:
                     cleanup(&pong, EXIT_SUCCESS);
                     break;
-                // case SDL_SCANCODE_SPACE:
-                //     SDL_SetRenderDrawColor(pong.renderer, rand() % 256, rand() % 256, rand() % 256, 255);
-                //     Mix_PlayChannel(-1, pong.c_sound, 0);
-                //     break;
                 case SDL_SCANCODE_M:
                     if(Mix_PausedMusic()){
                         Mix_ResumeMusic();
@@ -240,7 +236,7 @@ bool media(struct Pong *pong)
         return true;
     }
 
-    pong->sprite_image = IMG_LoadTexture(pong->renderer, "images/pong.png");
+    pong->sprite_image = IMG_LoadTexture(pong->renderer, "images/bigbar.png");
     if (!pong->sprite_image) {
         fprintf(stderr, "Error creating Texture: %s\n", IMG_GetError());
         return true;
@@ -273,28 +269,6 @@ bool media(struct Pong *pong)
     return false;
 }
 
-// void text_move(struct Pong *pong){
-
-//     pong->text_rect.x += pong->text_xvel;
-//     pong->text_rect.y += pong->text_yvel;
-//     if (pong->text_rect.x + pong->text_rect.w > WINDOW_WIDTH) {
-//         pong->text_xvel = -4;
-//         Mix_PlayChannel(-1, pong->sdl_sound, 0);
-//     }
-
-//     if (pong->text_rect.x < 0) {
-//         pong->text_xvel = 4;
-//         Mix_PlayChannel(-1, pong->sdl_sound, 0);
-//     }
-//     if (pong->text_rect.y + pong->text_rect.h > WINDOW_HEIGHT) {
-//         pong->text_yvel = -4;
-//         Mix_PlayChannel(-1, pong->sdl_sound, 0);
-//     }
-//     if (pong->text_rect.y < 0) {
-//         pong->text_yvel = 4;
-//         Mix_PlayChannel(-1, pong->sdl_sound, 0);
-//     }
-// }
 
 
 void sprite_move (struct Pong *pong){
